@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom/client';
 
 import './style.css'
@@ -57,6 +57,15 @@ const App = ()=>{
   const handleSetTitle = ()=>{
     setTitle("کدیاد")
   }
+
+  useEffect(()=> {
+    console.log("useEffect")
+
+    return ()=>{
+      
+    }
+
+  }, [isLight])
 
   const handleSetIsLight = ()=>{
     setIsLight(!isLight)
