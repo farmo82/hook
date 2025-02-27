@@ -52,15 +52,20 @@ const App = ()=>{
   //let a
   //let b
   // [a, b] = [0, 1]      ----->     a=0 & b=1
+  const [isLight, setIsLight] = useState(false)
 
   const handleSetTitle = ()=>{
     setTitle("کدیاد")
   }
 
+  const handleSetIsLight = ()=>{
+    setIsLight(!isLight)
+  }
+
   return(
-    <div className='main'>  
+    <div className='main' style={{background: isLight ? "white" : "black"}}>  
       <Text title = {title}/> 
-      <Timer handleSetTitle = {handleSetTitle}/>
+      <Timer handleSetTitle={handleSetTitle} isLight={isLight} handleSetIsLight={handleSetIsLight}/>
     </div>
   )
 }

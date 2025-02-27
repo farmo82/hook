@@ -75,7 +75,16 @@ class Timer extends React.Component{  //component
             <span className='action_button start_button' onClick={this.startInterval}>start</span>
             <span className='action_button stop_button' onClick={this.stopInterval}>stop</span>
             <span className='action_button reset_button' onClick={this.resetInterval}>reset</span>
-            <span className='action_button reset_button' onClick={this.props.handleSetTitle}>change name</span>
+            <span className='action_button reset_button' onClick={this.props.handleSetTitle}>changeName</span>
+            <span className='action_button reset_button'
+             onClick={this.props.handleSetIsLight}
+             style={{
+              background: this.props.isLight ? "black" : "white",
+              color: this.props.isLight ? "white" : "black"
+             }}
+             >
+              {this.props.isLight ? "dark" : "light"}
+             </span>
           </div>
         </>
       )
