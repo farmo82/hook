@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 
 import './style.css'
+import TimeList from './TimeList';
 
 
 var interval;
@@ -59,6 +60,14 @@ class Timer extends React.Component{  //component
       })
     }
 
+    handelSaveTime = ()=>{
+      let h = this.state.hour;
+      let m = this.state.minute;
+      let s = this.state.seconde;
+      let newTime = `${h > 9 ? h : "0"+h} : ${m > 9 ? m : "0"+m} : ${s > 9 ? s : "0"+s}`
+      this.props.setTimeArr([...this.props.timeArr, newTime]) // 'sepread operator' with adding a new string
+    }
+
     render(){
       let h = this.state.hour;
       let m = this.state.minute;
@@ -66,7 +75,7 @@ class Timer extends React.Component{  //component
 
       return(
         <>
-          <h2 className='timer'>
+          <h2 className='timer' onClick={this.handelSaveTime}>
             {/* {this.state.hour + ":" + this.state.minute + ":" + this.state.seconde} */}
             {`${h > 9 ? h : "0"+h} : ${m > 9 ? m : "0"+m} : ${s > 9 ? s : "0"+s}`}
           </h2>
@@ -86,6 +95,8 @@ class Timer extends React.Component{  //component
               {this.props.isLight ? "dark" : "light"}
              </span>
           </div>
+
+          <TimeList>{this.props.timeArr}</TimeList> {/* ارسال به صورت children */}  {/*******نباید فاصله باشد. باید همه در یک خط نوشته شوند*********/}
         </>
       )
     }

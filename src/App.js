@@ -14,7 +14,7 @@ const App = ()=>{
   //let b
   // [a, b] = [0, 1]      ----->     a=0 & b=1
   const [isLight, setIsLight] = useState(false);
-  const [timeArr, setTimeArr] = useState(["00 : 00 : 00", "00 : 00 : 11"]);
+  const [timeArr, setTimeArr] = useState([]);
 
   const handleSetTitle = ()=>{
     setTitle("کدیاد")
@@ -36,8 +36,9 @@ const App = ()=>{
   return(
     <div className='main' style={{background: isLight ? "white" : "black"}}>  
       <Text title = {title}/>  {/* self closing tag */}
-      <Timer handleSetTitle={handleSetTitle} isLight={isLight} handleSetIsLight={handleSetIsLight}/>
-      <TimeList>{timeArr}</TimeList>  {/* ارسال به صورت children */}  {/*******نباید فاصله باشد. باید همه در یک خط نوشته شوند*********/}
+      <Timer handleSetTitle={handleSetTitle} 
+      isLight={isLight} handleSetIsLight={handleSetIsLight} 
+      timeArr={timeArr} setTimeArr={setTimeArr}/>
     </div>
   )
 }
